@@ -11,7 +11,7 @@ import com.songs.wallah.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import tools.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 

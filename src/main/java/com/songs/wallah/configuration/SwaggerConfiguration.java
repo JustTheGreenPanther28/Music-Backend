@@ -29,6 +29,7 @@ public class SwaggerConfiguration {
 		Contact contact = new Contact();
 		contact.setName("Vedant Maheshwari");
 		contact.setEmail("zippyjese@gmail.com");
+		contact.setUrl("https://github.com/JustTheGreenPanther28");
 		info.setContact(contact);
 		info.setSummary(
 				"Make songs favorite, create public/private Playlist & search songs on the basis of your need!");

@@ -13,18 +13,19 @@ import com.songs.wallah.enums.otp.OperationStatus;
 import com.songs.wallah.enums.otp.OtpVerification;
 import com.songs.wallah.repository.OtpRepository;
 import com.songs.wallah.repository.UserRepository;
+import com.songs.wallah.service.EmailService;
 import com.songs.wallah.service.OtpService;
 
 @Service
 public class OtpServiceImplementation implements OtpService {
 
-	private EmailSenderImpl emailSenderImpl;
+	private EmailService emailService;
 	private OtpRepository otpRepository;
 	private UserRepository userRepository;
 
-	public OtpServiceImplementation(EmailSenderImpl emailSenderImpl, OtpRepository otpRepository,
+	public OtpServiceImplementation(EmailService emailService, OtpRepository otpRepository,
 			UserRepository userRepository) {
-		this.emailSenderImpl = emailSenderImpl;
+		this.emailService = emailService;
 		this.otpRepository = otpRepository;
 		this.userRepository = userRepository;
 	}
@@ -35,7 +36,7 @@ public class OtpServiceImplementation implements OtpService {
 		SecureRandom secureRandom = new SecureRandom();
 		int otp = secureRandom.nextInt(900000);
 		OtpEntity otpEntity = new OtpEntity(email, LocalDateTime.now().plusMinutes(10), otp);
-		emailSenderImpl.sendOTP(email, String.valueOf(otp));
+		emailService.sendOTP(email, String.valueOf(otp));
 		otpRepository.save(otpEntity);
 
 	}

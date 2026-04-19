@@ -26,7 +26,7 @@ public class EmailSenderImpl implements EmailService {
 		Email from = new Email("zippyjese@gmail.com");
 		Email to = new Email(toEmail);
 		String subject = "Verification Email";
-		Content content = new Content("text/plain", "Your OTP is: " + otp);
+		Content content = new Content("text/plain", "Verification code: " + otp);
 
 		Mail mail = new Mail(from, subject, to, content);
 
